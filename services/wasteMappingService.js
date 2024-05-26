@@ -1,4 +1,5 @@
 const wasteMappingRepository = require("../repositories/wasteMappingRepository");
+const decisionRepository = require("../repositories/decisionRepository");
 
 class WasteMappingService {
 
@@ -67,7 +68,7 @@ class WasteMappingService {
 
         }
 
-    }
+    };
 
     /* ------------------- End Handle Get River By Id ------------------- */
 
@@ -76,6 +77,8 @@ class WasteMappingService {
     
     static async handleUpdateRiverById({
         id,
+        riverId,
+        decision,
         name,
         longitude,
         latitude,
@@ -87,7 +90,7 @@ class WasteMappingService {
 
         try {
 
-            const getedRiverById = await wasteMappingRepository.getedRiverById({ id });
+            const getedRiverById = await wasteMappingRepository.handleGetRiverById({ id });
 
             if (getedRiverById.id == id) {
 
@@ -132,12 +135,15 @@ class WasteMappingService {
                 colorLevel
             });
 
+            const updatedDecisionById = await decisionRepository.handleDecisionAfterUpdateRiverData({ riverId: getedRiverById.id, decision})
+
             return {
                 status: true,
                 status_code: 201,
                 message: "Data updated successfully(:",
                 data: {
                     updatedRiverById: updatedRiverById,
+                    updateDecisionById: updatedDecisionById
                 },
             };
             

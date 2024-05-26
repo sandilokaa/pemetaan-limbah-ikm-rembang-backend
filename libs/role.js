@@ -1,4 +1,4 @@
 exports.ROLES = {
-    GOVERMENT: "goverment",
+    GOVERNMENT: "government",
     SMES: "smes",
 };

@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const { Rivers } = require("../models");
 
 class WasteMappingRepository {
@@ -86,7 +85,7 @@ class WasteMappingRepository {
 
     };
 
-    /* ------------------- End Handle Update River By Id ------------------- */
+    /* ------------------- End Handle Update River By Id ------------------- */    
 
 
 };

@@ -43,10 +43,12 @@ const handleUpdateRiverById = async (req, res, next) => {
 
     const { id } = req.params;
 
-    const { name, longitude, latitude, bod, cod, ph, colorLevel } = req.body;
+    const { riverId, decision, name, longitude, latitude, bod, cod, ph, colorLevel } = req.body;
 
     const { status, status_code, message, data} = await wasteMappingService.handleUpdateRiverById({ 
         id,
+        riverId,
+        decision,
         name,
         longitude,
         latitude,

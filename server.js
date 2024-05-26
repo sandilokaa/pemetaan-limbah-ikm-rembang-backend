@@ -17,6 +17,7 @@ app.use(cors());
 
 const authController = require("./controllers/authController");
 const wasteMappingController = require("./controllers/wasteMappingController");
+const decisionController = require("./controllers/descisionController");
 
 // ------------------------- End Import Controllers ------------------------- //
 
@@ -48,6 +49,15 @@ app.get('/api/v1/rivers/:id', wasteMappingController.handleGetRiverById);
 app.put('/api/v1/rivers/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.SMES), wasteMappingController.handleUpdateRiverById);
 
 /* -------------- End Waste Mapping Endpoint -------------- */
+
+
+/* -------------- Decision Endpoint -------------- */
+
+app.get('/api/v1/decisions', middleware.authenticate, middleware.authorizeUpdate(ROLES.GOVERNMENT), decisionController.handleGetAllDecisions);
+app.get('/api/v1/decisions/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.GOVERNMENT), decisionController.handleGetDecisionById);
+app.put('/api/v1/decisions/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.GOVERNMENT), decisionController.handleUpdateDecisionById);
+
+/* -------------- End Decision Endpoint -------------- */
 
 
 // ------------------------- End Define Routes ------------------------- //
