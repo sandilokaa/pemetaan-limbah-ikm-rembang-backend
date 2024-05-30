@@ -17,7 +17,9 @@ module.exports = {
         }
       },
       decision: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.ENUM,
+        values: ['approved', 'not approved', 'under review'],
+        defaultValue: 'under review'
       },
       createdAt: {
         allowNull: false,

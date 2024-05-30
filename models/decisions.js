@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Decisions.init({
     riverId: DataTypes.INTEGER,
-    decision: DataTypes.BOOLEAN
+    decision: {
+      type: DataTypes.ENUM,
+      values: ['approved', 'not approved', 'under review'],
+      defaultValue: 'under review'
+    },
   }, {
     sequelize,
     modelName: 'Decisions',

@@ -1,4 +1,4 @@
-const { Rivers } = require("../models");
+const { Rivers, Decisions } = require("../models");
 
 class WasteMappingRepository {
 
@@ -16,7 +16,15 @@ class WasteMappingRepository {
                 'bod',
                 'cod',
                 'ph',
-                'colorLevel'
+                'colorLevel',
+                'picture',
+                'quality'
+            ],
+            include: [
+                {
+                    model: Decisions,
+                    attributes: ["decision"]
+                }
             ]
         }
 
@@ -43,7 +51,9 @@ class WasteMappingRepository {
                 'bod',
                 'cod',
                 'ph',
-                'colorLevel'
+                'colorLevel',
+                'picture',
+                'quality'
             ]
         }
 
@@ -66,7 +76,9 @@ class WasteMappingRepository {
         bod,
         cod,
         ph,
-        colorLevel
+        colorLevel,
+        picture,
+        quality
     }) {
 
         const updatedRiverById = await Rivers.update({
@@ -76,7 +88,9 @@ class WasteMappingRepository {
             bod,
             cod,
             ph,
-            colorLevel
+            colorLevel,
+            picture,
+            quality
         }, {
             where: { id }
         });

@@ -1,5 +1,6 @@
 const wasteMappingRepository = require("../repositories/wasteMappingRepository");
 const decisionRepository = require("../repositories/decisionRepository");
+const fileRemove = require("../utils/fileRemove");
 
 class WasteMappingService {
 
@@ -85,7 +86,9 @@ class WasteMappingService {
         bod,
         cod,
         ph,
-        colorLevel
+        colorLevel,
+        picture,
+        quality
     }) {
 
         try {
@@ -122,6 +125,16 @@ class WasteMappingService {
                     colorLevel = getedRiverById.colorLevel;
                 }
 
+                if (!picture){
+                    picture = getedRiverById.picture;
+                } else {
+                    fileRemove(getedRiverById.picture)
+                }
+
+                if (!quality){
+                    quality = getedRiverById.quality;
+                }
+
             }
 
             const updatedRiverById = await wasteMappingRepository.handleUpdateRiverById({
@@ -132,10 +145,12 @@ class WasteMappingService {
                 bod,
                 cod,
                 ph,
-                colorLevel
+                colorLevel,
+                picture,
+                quality
             });
 
-            const updatedDecisionById = await decisionRepository.handleDecisionAfterUpdateRiverData({ riverId: getedRiverById.id, decision})
+            const updatedDecisionById = await decisionRepository.handleDecisionAfterUpdateRiverData({ riverId: getedRiverById.id, decision: 'under review'})
 
             return {
                 status: true,

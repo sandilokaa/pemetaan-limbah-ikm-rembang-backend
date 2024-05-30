@@ -28,7 +28,9 @@ module.exports = (sequelize, DataTypes) => {
     bod: DataTypes.STRING,
     cod: DataTypes.STRING,
     ph: DataTypes.STRING,
-    colorLevel: DataTypes.STRING
+    colorLevel: DataTypes.STRING,
+    picture: DataTypes.STRING,
+    quality: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Rivers',

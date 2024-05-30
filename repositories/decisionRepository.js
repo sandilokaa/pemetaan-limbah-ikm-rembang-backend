@@ -44,7 +44,7 @@ class DecisionRepository {
             include: [
                 {
                     model: Rivers,
-                    attributes: ["name", "bod", "cod", "ph", "colorLevel"]
+                    attributes: ["name", "bod", "cod", "ph", "colorLevel", "quality"]
                 }
             ]
         };
@@ -83,7 +83,7 @@ class DecisionRepository {
     static async handleDecisionAfterUpdateRiverData({ riverId, decision }) {
 
         const updatedDecisionById = await Decisions.update({
-            decision:false
+            decision
         }, {
             where: { riverId }
         });

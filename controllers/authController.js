@@ -26,7 +26,7 @@ const handleAdminLogin = async(req, res) => {
 
 const handleCurrentUser = async (req, res) => {
     
-    const currentUser = req.user;
+    const currentUser = req.admin;
 
     res.status(200).send({
         status: true,

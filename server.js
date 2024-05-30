@@ -1,7 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
 const { ROLES } = require("./libs/role");
+
+const fileUpload = require("./utils/fileUpload");
 
 const app = express();
 const PORT = 8080;
@@ -10,6 +13,12 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+
+// ------------------------- Public File Access ------------------------- //
+
+app.use("/storages", express.static(path.join(__dirname, "storages")));
+
+// ------------------------- End Public File Access ------------------------- //
 
 
 
@@ -46,7 +55,7 @@ app.get('/api/v1/auth/me', middleware.authenticate, authController.handleCurrent
 
 app.get('/api/v1/rivers', wasteMappingController.handleGetAllRivers);
 app.get('/api/v1/rivers/:id', wasteMappingController.handleGetRiverById);
-app.put('/api/v1/rivers/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.SMES), wasteMappingController.handleUpdateRiverById);
+app.put('/api/v1/rivers/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.SMES), fileUpload.single("picture"), wasteMappingController.handleUpdateRiverById);
 
 /* -------------- End Waste Mapping Endpoint -------------- */
 
