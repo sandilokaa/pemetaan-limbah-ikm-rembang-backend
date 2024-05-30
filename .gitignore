@@ -1,6 +1,5 @@
 # dependencies
 node_modules
-storages
 /.pnp
 .pnp.js
 .yarn
@@ -10,7 +9,6 @@ coverage
 
 # production
 /build
-storages
 
 # misc
 .DS_Store

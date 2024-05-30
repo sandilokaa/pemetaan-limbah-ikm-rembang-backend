@@ -16,7 +16,7 @@ class DecisionRepository {
             include: [
                 {
                     model: Rivers,
-                    attributes: ["name", "bod", "cod", "ph", "colorLevel"]
+                    attributes: ["name", "bod", "cod", "ph", "colorLevel", "quality"]
                 }
             ]
         };
