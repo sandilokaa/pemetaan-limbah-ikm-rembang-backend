@@ -39,6 +39,8 @@ class DecisionRepository {
             attributes: [
                 'id',
                 'riverId',
+                'name',
+                'information',
                 'decision'
             ],
             include: [
@@ -62,10 +64,14 @@ class DecisionRepository {
 
     static async handleUpdateDecisionById({
         id,
+        name,
+        information,
         decision
     }) {
 
         const updatedDecisionById = await Decisions.update({
+            name,
+            information,
             decision
         }, {
             where: { id }

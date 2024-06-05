@@ -43,9 +43,9 @@ const handleUpdateDecisionById = async (req, res, next) => {
 
     const { id } = req.params;
 
-    const { decision } = req.body;
+    const { name, information, decision } = req.body;
 
-    const { status, status_code, message, data} = await decisionService.handleUpdateDecisionById({ id, decision });
+    const { status, status_code, message, data} = await decisionService.handleUpdateDecisionById({ id, name, information, decision });
 
     res.status(status_code).send({
         status: status,

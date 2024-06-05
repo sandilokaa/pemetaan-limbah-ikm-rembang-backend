@@ -16,6 +16,12 @@ module.exports = {
           key: 'id'
         }
       },
+      name: {
+        type: Sequelize.STRING
+      },
+      information: {
+        type: Sequelize.STRING
+      },
       decision: {
         type: Sequelize.ENUM,
         values: ['approved', 'not approved', 'under review'],
