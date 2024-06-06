@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Decisions.init({
     riverId: DataTypes.INTEGER,
-    name: DataTypes.STRING,
+    governmentName: DataTypes.STRING,
     information: DataTypes.STRING,
     decision: {
       type: DataTypes.ENUM,

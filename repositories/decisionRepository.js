@@ -11,7 +11,10 @@ class DecisionRepository {
             attributes: [
                 'id',
                 'riverId',
-                'decision'
+                'name',
+                'information',
+                'decision',
+                'updatedAt'
             ],
             include: [
                 {
@@ -86,9 +89,11 @@ class DecisionRepository {
 
     /* ------------------- Handle Update Decision By Id After Update River Data ------------------- */
 
-    static async handleDecisionAfterUpdateRiverData({ riverId, decision }) {
+    static async handleDecisionAfterUpdateRiverData({ riverId, governmentName, information, decision }) {
 
         const updatedDecisionById = await Decisions.update({
+            governmentName,
+            information,
             decision
         }, {
             where: { riverId }

@@ -80,6 +80,8 @@ class WasteMappingService {
         id,
         riverId,
         decision,
+        governmentName,
+        information,
         name,
         longitude,
         latitude,
@@ -150,7 +152,7 @@ class WasteMappingService {
                 quality
             });
 
-            const updatedDecisionById = await decisionRepository.handleDecisionAfterUpdateRiverData({ riverId: getedRiverById.id, decision: 'under review'})
+            const updatedDecisionById = await decisionRepository.handleDecisionAfterUpdateRiverData({ riverId: getedRiverById.id, decision: 'under review', governmentName:null, information:null})
 
             return {
                 status: true,

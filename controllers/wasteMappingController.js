@@ -43,7 +43,20 @@ const handleUpdateRiverById = async (req, res, next) => {
 
     const { id } = req.params;
 
-    const { riverId, decision, name, longitude, latitude, bod, cod, ph, colorLevel, quality } = req.body;
+    const { 
+        riverId, 
+        decision, 
+        name, 
+        longitude, 
+        latitude, 
+        bod, 
+        cod, 
+        ph, 
+        colorLevel, 
+        quality,
+        governmentName,
+        information
+    } = req.body;
 
     let picture = "";
 
@@ -63,7 +76,9 @@ const handleUpdateRiverById = async (req, res, next) => {
         ph,
         colorLevel,
         picture,
-        quality 
+        quality,
+        governmentName,
+        information 
     });
 
     res.status(status_code).send({

@@ -16,7 +16,7 @@ module.exports = {
           key: 'id'
         }
       },
-      name: {
+      governmentName: {
         type: Sequelize.STRING
       },
       information: {
