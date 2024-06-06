@@ -11,7 +11,7 @@ class DecisionRepository {
             attributes: [
                 'id',
                 'riverId',
-                'name',
+                'governmentName',
                 'information',
                 'decision',
                 'updatedAt'
@@ -42,7 +42,7 @@ class DecisionRepository {
             attributes: [
                 'id',
                 'riverId',
-                'name',
+                'governmentName',
                 'information',
                 'decision'
             ],
@@ -67,13 +67,13 @@ class DecisionRepository {
 
     static async handleUpdateDecisionById({
         id,
-        name,
+        governmentName,
         information,
         decision
     }) {
 
         const updatedDecisionById = await Decisions.update({
-            name,
+            governmentName,
             information,
             decision
         }, {

@@ -23,7 +23,7 @@ class WasteMappingRepository {
             include: [
                 {
                     model: Decisions,
-                    attributes: ["name", "information", "decision", "updatedAt"]
+                    attributes: ["governmentName", "information", "decision", "updatedAt"]
                 }
             ]
         }

@@ -77,7 +77,7 @@ class DecisionService {
 
     static async handleUpdateDecisionById({
         id,
-        name,
+        governmentName,
         information,
         decision
     }) {
@@ -88,8 +88,8 @@ class DecisionService {
 
             if (getedDecisionById.id == id) {
 
-                if (!name){
-                    name = getedDecisionById.name;
+                if (!governmentName){
+                    governmentName = getedDecisionById.governmentName;
                 }
                 
                 if (!information){
@@ -104,7 +104,7 @@ class DecisionService {
 
             const updatedDecisionById = await decisionRepository.handleUpdateDecisionById({
                 id,
-                name,
+                governmentName,
                 information,
                 decision
             });
