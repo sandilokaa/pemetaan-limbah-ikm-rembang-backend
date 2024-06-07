@@ -18,7 +18,8 @@ class WasteMappingRepository {
                 'ph',
                 'colorLevel',
                 'picture',
-                'quality'
+                'quality',
+                'updatedAt'
             ],
             include: [
                 {
@@ -53,7 +54,8 @@ class WasteMappingRepository {
                 'ph',
                 'colorLevel',
                 'picture',
-                'quality'
+                'quality',
+                'updatedAt'
             ]
         }
 
