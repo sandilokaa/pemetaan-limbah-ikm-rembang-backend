@@ -55,7 +55,7 @@ app.get('/api/v1/auth/me', middleware.authenticate, authController.handleCurrent
 
 app.get('/api/v1/rivers', wasteMappingController.handleGetAllRivers);
 app.get('/api/v1/rivers/:id', wasteMappingController.handleGetRiverById);
-app.put('/api/v1/rivers/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.SMES), fileUpload.single("picture"), wasteMappingController.handleUpdateRiverById);
+app.put('/api/v1/rivers/:id', middleware.authenticate, middleware.authorizeUpdate(ROLES.SMES), fileUpload.fields([{ name: "picture"}, {name: "validationFile"}]), wasteMappingController.handleUpdateRiverById);
 
 /* -------------- End Waste Mapping Endpoint -------------- */
 

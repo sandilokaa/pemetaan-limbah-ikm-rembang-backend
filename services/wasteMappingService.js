@@ -90,7 +90,8 @@ class WasteMappingService {
         ph,
         colorLevel,
         picture,
-        quality
+        quality,
+        validationFile
     }) {
 
         try {
@@ -137,6 +138,12 @@ class WasteMappingService {
                     quality = getedRiverById.quality;
                 }
 
+                if (!validationFile){
+                    validationFile = getedRiverById.validationFile;
+                } else {
+                    fileRemove(getedRiverById.validationFile)
+                }
+
             }
 
             const updatedRiverById = await wasteMappingRepository.handleUpdateRiverById({
@@ -149,7 +156,8 @@ class WasteMappingService {
                 ph,
                 colorLevel,
                 picture,
-                quality
+                quality,
+                validationFile
             });
 
             const updatedDecisionById = await decisionRepository.handleDecisionAfterUpdateRiverData({ riverId: getedRiverById.id, decision: 'under review', governmentName:null, information:null})

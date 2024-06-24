@@ -19,7 +19,7 @@ class DecisionRepository {
             include: [
                 {
                     model: Rivers,
-                    attributes: ["name", "bod", "cod", "ph", "colorLevel", "quality"]
+                    attributes: ["name", "bod", "cod", "ph", "colorLevel", "quality", "validationFile"]
                 }
             ]
         };
@@ -49,7 +49,7 @@ class DecisionRepository {
             include: [
                 {
                     model: Rivers,
-                    attributes: ["name", "bod", "cod", "ph", "colorLevel", "quality"]
+                    attributes: ["name", "bod", "cod", "ph", "colorLevel", "quality", "validationFile"]
                 }
             ]
         };

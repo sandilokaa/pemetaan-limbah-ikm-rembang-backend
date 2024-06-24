@@ -19,6 +19,7 @@ class WasteMappingRepository {
                 'colorLevel',
                 'picture',
                 'quality',
+                'validationFile',
                 'updatedAt'
             ],
             include: [
@@ -55,6 +56,7 @@ class WasteMappingRepository {
                 'colorLevel',
                 'picture',
                 'quality',
+                'validationFile',
                 'updatedAt'
             ]
         }
@@ -80,7 +82,8 @@ class WasteMappingRepository {
         ph,
         colorLevel,
         picture,
-        quality
+        quality,
+        validationFile
     }) {
 
         const updatedRiverById = await Rivers.update({
@@ -92,7 +95,8 @@ class WasteMappingRepository {
             ph,
             colorLevel,
             picture,
-            quality
+            quality,
+            validationFile
         }, {
             where: { id }
         });

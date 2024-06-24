@@ -30,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     ph: DataTypes.STRING,
     colorLevel: DataTypes.STRING,
     picture: DataTypes.STRING,
-    quality: DataTypes.STRING
+    quality: DataTypes.STRING,
+    validationFile: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Rivers',

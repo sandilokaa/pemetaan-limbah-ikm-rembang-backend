@@ -43,6 +43,9 @@ module.exports = {
       quality: {
         type: Sequelize.STRING
       },
+      validationFile: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

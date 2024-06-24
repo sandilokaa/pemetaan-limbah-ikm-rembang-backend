@@ -59,9 +59,14 @@ const handleUpdateRiverById = async (req, res, next) => {
     } = req.body;
 
     let picture = "";
+    let validationFile = "";
 
-    if (req.file) {
-        picture = req.file.path;
+    if (req.files['picture']) {
+        picture = req.files['picture'][0].path;
+    }
+    
+    if (req.files['validationFile']) {
+        validationFile = req.files['validationFile'][0].path;
     }
 
     const { status, status_code, message, data} = await wasteMappingService.handleUpdateRiverById({ 
@@ -77,6 +82,7 @@ const handleUpdateRiverById = async (req, res, next) => {
         colorLevel,
         picture,
         quality,
+        validationFile,
         governmentName,
         information 
     });
